@@ -1,22 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   validate_args.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/10 19:21:12 by amantara          #+#    #+#             */
-/*   Updated: 2022/05/10 20:39:14 by amantara         ###   ########.fr       */
+/*   Created: 2022/05/10 20:39:38 by amantara          #+#    #+#             */
+/*   Updated: 2022/05/10 20:49:23 by amantara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philosophers.h"
 
-int main(int argc, char **argv)
+static int	ft_isalnum(int c)
 {
-	t_rules	rules;
-	
-	if (argc < 4 || argc > 6 )
+	if (c >= 65 && c <= 90)
+	{
+		return (1);
+	}
+	else if (c >= 97 && c <= 122)
+	{
+		return (1);
+	}
+	else if (c >= 48 && c <= 57)
+	{
+		return (1);
+	}
+	else
+	{
 		return (0);
-	validate_args(argc, argv);
+	}
+}
+
+
+int validate_args(int argc, char **argv)
+{
+	int i;
+	
+	i = 1;
+	while(i < argv[i])
+	{
+		j = 0;
+		while(argv[i][j])
+		{
+			if (!ft_isalnum(argv[i][j]))
+				return (0);
+			j++;
+		}
+		i++;	
+	}
 }

@@ -1,22 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error_and_free.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/10 19:21:12 by amantara          #+#    #+#             */
-/*   Updated: 2022/05/10 20:39:14 by amantara         ###   ########.fr       */
+/*   Created: 2022/05/10 20:40:25 by amantara          #+#    #+#             */
+/*   Updated: 2022/05/10 20:41:39 by amantara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/philosophers.h"
-
-int main(int argc, char **argv)
+void show_error_msg(char *str)
 {
-	t_rules	rules;
-	
-	if (argc < 4 || argc > 6 )
-		return (0);
-	validate_args(argc, argv);
+    printf("%s", str);
 }
