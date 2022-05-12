@@ -3,39 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   validate_args.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
+/*   By: albertmantaras <albertmantaras@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 20:39:38 by amantara          #+#    #+#             */
-/*   Updated: 2022/05/10 20:49:23 by amantara         ###   ########.fr       */
+/*   Updated: 2022/05/12 21:00:17 by albertmanta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philosophers.h"
 
-static int	ft_isalnum(int c)
+int	ft_isdigit(int c)
 {
-	if (c >= 65 && c <= 90)
-	{
-		return (1);
-	}
-	else if (c >= 97 && c <= 122)
-	{
-		return (1);
-	}
-	else if (c >= 48 && c <= 57)
-	{
-		return (1);
-	}
-	else
+	if (c < '0' || c > '9')
 	{
 		return (0);
 	}
+	return (1);
 }
 
 
 int validate_args(int argc, char **argv)
 {
 	int i;
+	int j;
 	
 	i = 1;
 	while(i < argv[i])
@@ -43,10 +33,13 @@ int validate_args(int argc, char **argv)
 		j = 0;
 		while(argv[i][j])
 		{
-			if (!ft_isalnum(argv[i][j]))
-				return (0);
+			if (!ft_isdigit(argv[i][j])){
+				write(1, "Error parametros introducidos no son numericos\n", 47);
+				return (1);
+			}
 			j++;
 		}
 		i++;	
 	}
+	return (0);
 }

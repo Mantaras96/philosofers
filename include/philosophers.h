@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
+/*   By: albertmantaras <albertmantaras@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 18:54:47 by amantara          #+#    #+#             */
-/*   Updated: 2022/05/10 20:46:09 by amantara         ###   ########.fr       */
+/*   Updated: 2022/05/12 21:12:25 by albertmanta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,17 @@
 
 # include	<time.h>
 # include	<pthread.h>
+# include	<unistd.h>
 
 typedef struct	s_philosophers
 {
 	int			id;
 	int			times_eat;
 	int			alive;
-	pthread_t	f_left;
-	pthread_t	f_right;	
+	int			f_left;
+	int			f_right;	
 	time_t		last_eat;
+	struct s_rules *rules
 }				t_philosophers;
 
 typedef struct	s_rules
@@ -33,8 +35,12 @@ typedef struct	s_rules
 	int			time_to_die;
 	int			time_to_sleep;
 	int			number_eats;
+	pthread_mutex_t	*forks;
 	time_t		time_start;
 	struct s_philosophers **philosophers;
 }               t_rules;
+
+int	ft_atoi(const char *str1);
+
 
 #endif
