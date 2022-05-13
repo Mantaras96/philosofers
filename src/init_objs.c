@@ -6,7 +6,7 @@
 /*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 20:38:01 by amantara          #+#    #+#             */
-/*   Updated: 2022/05/13 17:10:17 by amantara         ###   ########.fr       */
+/*   Updated: 2022/05/13 19:37:05 by amantara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ void	startForks(t_rules *rules)
 	int				nbr_philo;
 	pthread_mutex_t	*forks;
 
-	nbr_philo = rules->count_philo;	
+	nbr_philo = rules->count_philo;
+	forks = malloc(sizeof(pthread_mutex_t) * nbr_philo);
 	while (nbr_philo)
 	{
 		pthread_mutex_init(&forks[nbr_philo], NULL);	
@@ -48,10 +49,22 @@ void	startPhilo(t_rules *rules)
 
 	philosophers = malloc(sizeof(t_philosophers) * (rules->count_philo));
 	nbr_philo = 0;
+	write(1, "ww", 2);
 	while (nbr_philo < rules->count_philo)
 	{
+		write(1, "1", 1);
 		philosophers[nbr_philo].id = nbr_philo;
 		philosophers[nbr_philo].times_eat = nbr_philo;
-		nbr_philo--;
+		philosophers[nbr_philo].rules = rules;
+		if(nbr_philo > 0)
+		{
+			philosophers[nbr_philo].f_left = nbr_philo - 1;
+			philosophers[nbr_philo].f_right = nbr_philo;
+		} else {
+			philosophers[nbr_philo].f_left = rules->count_philo - 1;
+			philosophers[nbr_philo].f_right = nbr_philo;
+		}
+		nbr_philo++;
 	}
+	rules->philosophers = philosophers;
 }

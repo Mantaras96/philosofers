@@ -6,7 +6,7 @@
 /*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 20:39:38 by amantara          #+#    #+#             */
-/*   Updated: 2022/05/13 15:35:23 by amantara         ###   ########.fr       */
+/*   Updated: 2022/05/13 19:35:11 by amantara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,5 @@ int validate_args(int argc, char **argv)
 		}
 		i++;	
 	}
-	return (0);
+	return(0);
 }

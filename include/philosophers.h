@@ -6,7 +6,7 @@
 /*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 18:54:47 by amantara          #+#    #+#             */
-/*   Updated: 2022/05/13 16:22:31 by amantara         ###   ########.fr       */
+/*   Updated: 2022/05/13 19:31:16 by amantara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include	<pthread.h>
 # include	<unistd.h>
 # include	<stdlib.h>
+# include	<stdio.h>
 
 typedef struct	s_philosophers
 {
@@ -38,7 +39,7 @@ typedef struct	s_rules
 	int			number_eats;
 	pthread_mutex_t	*forks;
 	time_t		time_start;
-	struct s_philosophers **philosophers;
+	struct s_philosophers *philosophers;
 }               t_rules;
 
 //Validate args (validate_args.c)
