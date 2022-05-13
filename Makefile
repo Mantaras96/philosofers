@@ -3,16 +3,19 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: albertmantaras <albertmantaras@student.    +#+  +:+       +#+         #
+#    By: amantara <amantara@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/10 19:02:21 by albertmanta       #+#    #+#              #
-#    Updated: 2022/05/12 21:12:28 by albertmanta      ###   ########.fr        #
+#    Updated: 2022/05/13 15:35:48 by amantara         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	philosofers
 
-SRC	=	main.c \		
+SRC	=	main.c \
+		utils.c \
+		init_objs.c \
+		validate_args.c 		
 
 OBJ	= $(addprefix objs/,$(SRC:.c=.o))
 
@@ -25,16 +28,14 @@ objs/%.o:src/%.c
 
 all:	$(NAME)
 
-$(NAME): $(OBJ) include/philosofers.h
-	@make -C libft
-	@$(CC) $(OBJ) libft/libft.a -o $(NAME)
+$(NAME): $(OBJ) include/philosophers.h
+	@$(CC) $(OBJ) -o $(NAME)
 
 clean:
 	@rm -rf $(OBJS_DIR)
 	@rm -rf ./objs
 
 fclean:	clean
-	@make fclean -C libft
 	@rm -f $(NAME)
 
 re:	fclean all

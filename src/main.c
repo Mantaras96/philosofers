@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertmantaras <albertmantaras@student.    +#+  +:+       +#+        */
+/*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 19:21:12 by amantara          #+#    #+#             */
-/*   Updated: 2022/05/12 21:13:46 by albertmanta      ###   ########.fr       */
+/*   Updated: 2022/05/13 16:14:12 by amantara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,13 @@ int main(int argc, char **argv)
 	t_rules	rules;
 	
 	if (argc < 4 || argc > 6 )
-		return (0);
-	if(!validate_args(argc, argv)){
+    {
+        write(1, "Numero incorrecto de parametros\n", 32);
+        return (0);
+    }	
+	if(!validate_args(argc, argv))
         return(0);
-    };
     initArgs(argc, argv, &rules);
+    startForks(&rules);
     return (0);
 }

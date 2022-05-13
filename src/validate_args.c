@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_args.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertmantaras <albertmantaras@student.    +#+  +:+       +#+        */
+/*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 20:39:38 by amantara          #+#    #+#             */
-/*   Updated: 2022/05/12 21:00:17 by albertmanta      ###   ########.fr       */
+/*   Updated: 2022/05/13 15:35:23 by amantara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@ int validate_args(int argc, char **argv)
 {
 	int i;
 	int j;
+
 	
 	i = 1;
-	while(i < argv[i])
+	while(i < argc)
 	{
 		j = 0;
 		while(argv[i][j])
