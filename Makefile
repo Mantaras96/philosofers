@@ -6,7 +6,7 @@
 #    By: amantara <amantara@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/10 19:02:21 by albertmanta       #+#    #+#              #
-#    Updated: 2022/05/13 15:35:48 by amantara         ###   ########.fr        #
+#    Updated: 2022/05/15 19:30:50 by amantara         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,10 @@ NAME	=	philosofers
 SRC	=	main.c \
 		utils.c \
 		init_objs.c \
-		validate_args.c 		
+		validate_args.c \
+		utils_time.c \
+		philo_thread.c \
+		error_and_free.c
 
 OBJ	= $(addprefix objs/,$(SRC:.c=.o))
 

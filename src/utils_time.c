@@ -1,45 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate_args.c                                    :+:      :+:    :+:   */
+/*   utils_time.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/10 20:39:38 by amantara          #+#    #+#             */
-/*   Updated: 2022/05/15 13:00:41 by amantara         ###   ########.fr       */
+/*   Created: 2022/05/15 10:49:58 by amantara          #+#    #+#             */
+/*   Updated: 2022/05/15 12:59:13 by amantara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philosophers.h"
 
-int	ft_isdigit(int c)
-{
-	if (c < '0' || c > '9')
-	{
-		return (0);
-	}
-	return (1);
-}
+/*
+Return time if you divide /100 will get timestamp today. 
+*/
 
-int	validate_args(int argc, char **argv)
+long	ft_time(void)
 {
-	int	i;
-	int	j;
+	struct timeval	tv;
+	long			res;
 
-	i = 1;
-	while (i < argc)
-	{
-		j = 0;
-		while (argv[i][j])
-		{
-			if (!ft_isdigit(argv[i][j]))
-			{
-				write(1, "Error parametros introducidos no son numericos\n", 47);
-				return (1);
-			}
-			j++;
-		}
-		i++;
-	}
-	return (0);
+	gettimeofday(&tv, NULL);
+	res = 1000 * (size_t)tv.tv_sec + (size_t)tv.tv_usec / 1000;
+	return (res);
 }
