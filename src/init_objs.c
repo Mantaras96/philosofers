@@ -6,7 +6,7 @@
 /*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 20:38:01 by amantara          #+#    #+#             */
-/*   Updated: 2022/05/15 19:24:30 by amantara         ###   ########.fr       */
+/*   Updated: 2022/05/20 19:33:31 by amantara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	start_forks(t_rules *rules)
 		pthread_mutex_init(&forks[nbr_philo], NULL);
 		--nbr_philo;
 	}
+	pthread_mutex_init(&rules->messages_console, NULL);
 	rules->forks = forks;
 }
 

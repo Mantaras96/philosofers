@@ -6,7 +6,7 @@
 /*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 19:21:12 by amantara          #+#    #+#             */
-/*   Updated: 2022/05/15 19:26:23 by amantara         ###   ########.fr       */
+/*   Updated: 2022/05/20 18:25:01 by amantara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	printforks(t_rules *rules)
 }
 
 //TODO: Agregar funcionalidad para saber si han comido las veces necesarias. 
-int	finish_simulation(t_rules *rules)
+int		finish_simulation(t_rules *rules)
 {
 	int				i;
 

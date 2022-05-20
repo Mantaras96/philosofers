@@ -6,7 +6,7 @@
 /*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 18:54:47 by amantara          #+#    #+#             */
-/*   Updated: 2022/05/15 19:28:03 by amantara         ###   ########.fr       */
+/*   Updated: 2022/05/20 18:48:10 by amantara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct s_rules
 	int						number_eats;
 	int						philo_full;
 	pthread_mutex_t			*forks;
+	pthread_mutex_t			messages_console;
 	time_t					time_start;
 	struct s_philosophers	*philosophers;
 }				t_rules;
@@ -55,11 +56,19 @@ void		start_philo(t_rules *rules);
 int			start_philo_thread(t_rules *rules);
 //Utils (utils.c)
 int			ft_atoi(const char *str1);
+//main (main.c)
+void	start_forks(t_rules *rules);
+void	printforks(t_rules *rules);
 //Utils time (utils_time.c)
 long		ft_time(void);
+void		sleep_time(long long time);
 // Philo thread actions(philo_thread.c)
-void		*philo_thread_func(void *philovoid);
+void		action_eat(t_philosophers *philosopher);
+void		action_sleep(t_philosophers *philosopher);
+void		action_think(t_philosophers *philosopher);
 void		action_die(t_philosophers *philosopher);
+void		check_die_philosopher(t_philosophers *philosopher);
+void		*philo_thread_func(void *philovoid);
 //Show error and clean objects
 void		destroy_forks(t_rules	*rules);
 void		destoy_thread(t_rules *rules);
