@@ -6,7 +6,7 @@
 /*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 20:38:01 by amantara          #+#    #+#             */
-/*   Updated: 2022/05/20 19:33:31 by amantara         ###   ########.fr       */
+/*   Updated: 2022/05/21 10:41:46 by amantara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	start_philo(t_rules *rules)
 		philosophers[nbr_philo].times_eat = nbr_philo;
 		philosophers[nbr_philo].rules = rules;
 		philosophers[nbr_philo].alive = 1;
+		philosophers[nbr_philo].waiting_fork = 0;
 		if (nbr_philo > 0)
 		{
 			philosophers[nbr_philo].f_left = nbr_philo - 1;

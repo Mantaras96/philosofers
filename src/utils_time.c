@@ -6,7 +6,7 @@
 /*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 10:49:58 by amantara          #+#    #+#             */
-/*   Updated: 2022/05/20 18:45:01 by amantara         ###   ########.fr       */
+/*   Updated: 2022/05/21 14:14:59 by amantara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ long	ft_time(void)
 /*
 Sleep loop because the usleep function aren't exactly.
 */
-void	sleep_time(long long time)
+void	sleep_time(int time)
 {
-	long long	time;
+	time_t	time;
 
 	time = get_timestamp();
 	while (1)

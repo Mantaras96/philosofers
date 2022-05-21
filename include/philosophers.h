@@ -6,7 +6,7 @@
 /*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 18:54:47 by amantara          #+#    #+#             */
-/*   Updated: 2022/05/20 18:48:10 by amantara         ###   ########.fr       */
+/*   Updated: 2022/05/21 10:48:32 by amantara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include	<stdio.h>
 # include	<sys/time.h>
 
+
+
 typedef struct s_philosophers
 {
 	pthread_t		threat;
@@ -29,6 +31,7 @@ typedef struct s_philosophers
 	int				f_left;
 	int				f_right;	
 	time_t			last_eat;
+	int				waiting_fork;
 	struct s_rules	*rules;
 }				t_philosophers;
 
@@ -61,7 +64,7 @@ void	start_forks(t_rules *rules);
 void	printforks(t_rules *rules);
 //Utils time (utils_time.c)
 long		ft_time(void);
-void		sleep_time(long long time);
+void		sleep_time(int time);
 // Philo thread actions(philo_thread.c)
 void		action_eat(t_philosophers *philosopher);
 void		action_sleep(t_philosophers *philosopher);
